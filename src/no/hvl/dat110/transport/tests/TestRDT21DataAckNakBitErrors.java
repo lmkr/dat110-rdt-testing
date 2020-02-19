@@ -16,7 +16,8 @@ public class TestRDT21DataAckNakBitErrors {
 
 		ts.setupNetwork(new RDT2DataAckNakBitErrors());
 
-		ts.setupTransport(new TransportSenderRDT21(), new TransportReceiverRDT21());
+		ts.setupTransport(new TransportSenderRDT21(ts.getNetwork().getSenderService()), 
+				new TransportReceiverRDT21(ts.getNetwork().getReceiverService()));
 
 		ts.runTest();
 
