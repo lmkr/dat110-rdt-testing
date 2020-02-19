@@ -6,9 +6,8 @@ import org.junit.Test;
 
 import no.hvl.dat110.network.Channel;
 import no.hvl.dat110.network.NetworkService;
-
+import no.hvl.dat110.network.models.RDT1PerfectChannel;
 import no.hvl.dat110.transport.*;
-import no.hvl.dat110.transport.rdt1.Adversary;
 import no.hvl.dat110.network.*;
 
 public class TestNetworkSystem {
@@ -16,12 +15,9 @@ public class TestNetworkSystem {
 	@Test
 	public void test() {
 		
-		Channel ch1 = new Channel("channel 1", new Adversary()); // TODO: operate with concept of bidirectional channel
-		Channel ch2 = new Channel("channel 2", new Adversary());
-		
-		ch1.start();
-		ch2.start();
-		
+		Channel ch1 = new Channel("channel 1", new RDT1PerfectChannel()); // TODO: operate with concept of bidirectional channel
+		Channel ch2 = new Channel("channel 2", new RDT1PerfectChannel());
+				
 		NetworkService ns1 = new NetworkService("network service 1",ch1,ch2);
 		NetworkService ns2 = new NetworkService("network service 2",ch2,ch1);
 		
@@ -48,9 +44,6 @@ public class TestNetworkSystem {
 		
 		ns1.doStop();
 		ns2.doStop();
-		
-		ch1.doStop();
-		ch2.doStop();
-		
+	
 	}
 }

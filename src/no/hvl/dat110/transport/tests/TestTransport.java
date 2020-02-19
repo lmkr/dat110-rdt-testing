@@ -10,7 +10,7 @@ import no.hvl.dat110.application.SenderProcess;
 import no.hvl.dat110.network.Network;
 import no.hvl.dat110.transport.TransportReceiver;
 import no.hvl.dat110.transport.TransportSender;
-import no.hvl.dat110.network.IAdversary;
+import no.hvl.dat110.network.IChannelModel;
 
 public class TestTransport {
 
@@ -26,7 +26,7 @@ public class TestTransport {
 		this.RUNNINGTIME = msecs;
 	}
 	
-	public void setupNetwork(IAdversary adversary) {
+	public void setupNetwork(IChannelModel adversary) {
 		
 		this.network = new Network(adversary);
 	}
