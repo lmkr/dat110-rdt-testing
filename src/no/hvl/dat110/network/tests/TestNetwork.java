@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import no.hvl.dat110.network.Channel;
 import no.hvl.dat110.network.NetworkService;
-import no.hvl.dat110.network.models.RDT1PerfectChannel;
+import no.hvl.dat110.network.models.RDT1ReliableChannel;
 import no.hvl.dat110.transport.*;
 import no.hvl.dat110.network.*;
 
@@ -15,7 +15,7 @@ public class TestNetwork {
 	@Test
 	public void test() {
 		
-		Channel channel = new Channel("test channel", new RDT1PerfectChannel());
+		Channel channel = new Channel("test channel", new RDT1ReliableChannel());
 		
 		//TODO: fixme - 2xchannel
 		NetworkService ns = new NetworkService("network service",channel,channel);

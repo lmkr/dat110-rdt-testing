@@ -31,13 +31,15 @@ public class TestTransport {
 		this.network = new Network(adversary);
 	}
 	
+	public Network getNetwork() {
+		return this.network;
+	}
+	
 	public void setupTransport(TransportSender tsender, TransportReceiver treceiver) {
 		
 		this.tsender = tsender;
 		this.treceiver = treceiver;
-		
-		tsender.register(network.getService(0));
-		treceiver.register(network.getService(1));
+
 	}
 	
 	public void runTest() {
