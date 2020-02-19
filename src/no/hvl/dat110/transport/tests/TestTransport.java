@@ -77,7 +77,7 @@ public class TestTransport {
 		
 		datasent = sender.getDatasent();
 		datarecv = receiver.getDatarecv();
-		
+				
 	}
 	
 	public ArrayList<byte[]> getDataReceived() {
@@ -102,5 +102,13 @@ public class TestTransport {
 		for (int i = 0; i<datasent.size();i++) {
 			assertTrue(equalData(datasent.get(i),datarecv.get(i)));
 		}
+		
+		System.out.print("Data sent:    ");
+		datasent.forEach(barr -> System.out.print(new String(barr) +"|"));
+		
+		System.out.println();
+		System.out.print("Data received:");
+		datarecv.forEach(barr -> System.out.print(new String(barr) + "|"));
+		System.out.println();
 	}
 }

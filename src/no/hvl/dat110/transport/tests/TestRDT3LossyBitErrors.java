@@ -2,11 +2,11 @@ package no.hvl.dat110.transport.tests;
 
 import org.junit.Test;
 
-import no.hvl.dat110.transport.rdt3.AdversaryRDT3;
 import no.hvl.dat110.transport.rdt3.TransportSenderRDT3;
+import no.hvl.dat110.network.models.RDT3LossyBitErrors;
 import no.hvl.dat110.transport.rdt3.TransportReceiverRDT3;
 
-public class TestRDT3Adversary3 {
+public class TestRDT3LossyBitErrors {
 
 	@Test
 	public void test() {
@@ -15,9 +15,10 @@ public class TestRDT3Adversary3 {
 
 		ts.setRunningTime(30000);
 		
-		ts.setupNetwork(new AdversaryRDT3());
+		ts.setupNetwork(new RDT3LossyBitErrors());
 
-		ts.setupTransport(new TransportSenderRDT3(), new TransportReceiverRDT3());
+		ts.setupTransport(new TransportSenderRDT3(ts.getNetwork().getSenderService()), 
+				new TransportReceiverRDT3(ts.getNetwork().getReceiverService()));
 
 		ts.runTest();
 
